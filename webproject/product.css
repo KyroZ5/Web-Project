@@ -1,0 +1,268 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+#header {
+    height: 10vh;
+    width: 100%;
+    background-color: #2b2d30;
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+#logo img {
+    width: 250px;
+    height: 100%;
+}
+.nav {
+    width: 170px;
+    height: 100%;
+    align-content: center;
+    text-align: center;
+}
+.nav a {
+    color: white;
+}
+#nav1 {
+    margin-left: 100px;
+}
+#logo {
+    width: 250px;
+    height: 100%;
+}
+#search {
+    margin-left: 50px;
+    width: 300px;
+}
+#search button {
+    float: right;
+    margin-top: 8px;
+    margin-right: 16px;
+    border: none;
+    cursor: pointer;
+}
+#search input[type="text"] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+}
+#profile img,
+#cart img {
+    margin-top: 10px;
+    height: 40px;
+    width: 40px;
+}
+
+#profile,
+#cart {
+    width: 100px;
+}
+#search button img {
+    margin-top: 1px;
+    height: 25px;
+    width: 25px;
+}
+#footer {
+    height: 10vh;
+    width: 100%;
+    background-color: #2b2d30;
+    margin-top: 0;
+}
+#main {
+    height: 1300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#upper {
+    height: 10%;
+    width: 100%;
+}
+#back img {
+    width: 60px;
+    background-color: white;
+    height: 60px;
+    margin-top: 30px;
+}
+#middle {
+    height: 55%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#lower {
+    height: 35%;
+    width: 100%;
+}
+#pics {
+    height: 100%;
+    width: 60%;
+
+    position: relative;
+    margin: auto;
+    display: grid;
+    align-items: center;
+    justify-content: normal;
+}
+#desc {
+    height: 100%;
+    width: 40%;
+    text-align: justify;
+    padding: 20px;
+    font-family: "Konkhmer Sleokchher", sans-serif;
+}
+
+.mySlides {
+    display: none;
+}
+.mySlides img {
+    align-self: center;
+    justify-self: center;
+    max-height: 600px;
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+#price {
+    height: 100px;
+    display: flex;
+    font-family: "Kodchasan", sans-serif;
+}
+#price * {
+    margin-right: 20px;
+}
+.oldprice {
+    text-decoration: line-through;
+}
+.saletag {
+    height: 30px;
+    width: 50px;
+    align-content: center;
+    margin-top: 20px;
+    text-align: center;
+    background-color: cyan;
+    border-radius: 10px;
+}
+#desc table {
+    font-size: 22px;
+    border-collapse: separate; /* This is the default, but good practice to be explicit */
+    border-spacing: 30px 0;
+    width: 100%;
+}
+#buttons {
+    height: 200px;
+    display: flex;
+}
+.b1 {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.b2 {
+    width: 40%;
+    padding: 10px;
+}
+#addcart,
+#buynow,
+#qty {
+    width: 90%;
+    height: 60px;
+    margin-top: 20px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+#addcart {
+    background-color: orange;
+}
+#buynow {
+    background-color: cyan;
+}
+#qty {
+    background-color: gray;
+}
+#buttons img {
+    width: 50px;
+    height: 50px;
+    align-self: center;
+}
+#contents {
+    height: 80%;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    padding: 5px;
+    background-color: white;
+    display: flex;
+}
+.recommend {
+    height: 100%;
+    width: 20%;
+    position: relative;
+    margin: auto;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
+.recommend img {
+    width: 80%;
+    height: 100%;
+    object-fit: fill;
+    justify-self: center;
+}
+.recommend h4 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-family: "Konkhmer Sleokchher", sans-serif;
+    font-size: 15px;
+    margin-left: 15px;
+}
