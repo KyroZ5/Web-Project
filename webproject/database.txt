@@ -1,0 +1,123 @@
+
+
+create database webproject;
+use webproject;
+-- accounts
+create table accounts(
+email VARCHAR(50) primary key not null,
+firstname VARCHAR(50),
+lastname VARCHAR(50),
+password VARCHAR(50)
+);
+
+
+
+--product details
+
+create table productDetails(
+prodCode VARCHAR(15) primary key not null,
+prodName VARCHAR(200),
+price int(11),
+releaseDate VARCHAR(20),
+brand VARCHAR(50),
+seriesTitle VARCHAR(50),
+charName VARCHAR(100),
+);
+
+
+INSERT INTO productdetails VALUES
+( "FIGURE-1","Lycoris Recoil 1/7 Scale Figure Takina Inoue -Band ver.",13500,"Mar-2026", "Taito/spiritale", "Lycoris Recoil", "Takina Inoue" ),
+( "FIGURE-2","Lycoris Recoil 1/7 Scale Figure Chisato Nishikigi -Band ver.",13500,"Mar-2026", "Taito/spiritale", "Lycoris Recoil", "Chisato Nishikigi" ),
+( "FIGURE-3","Honkai Impact 3rd Bronya Herrscher of Reason Ver. 1/8 Complete Figure",13500,"Sep-2026", "miHoyo", "Honkai Impact 3rd", "Bronya Zaychik" ),
+( "FIGURE-4","Nendoroid Kasane Teto: Synthesizer V AI Ver.",2551,"Mar-2026", "Good Smile Company", "Vocaloid", "Kasane Teto" ),
+( "FIGURE-5","Gift+ Honkai: Star Rail Hyacine 1/8 Complete Figure",2545,"Oct-2026", "miHoyo", "Honkai StarRail", "Hyacine" ),
+( "FIGURE-6","MADHOUSE x DesignCOCO Frieren: Beyond Journey's End Frieren - Art Nouveau Style - 1/7 Complete Figure",11850,"May-2026", "madhouse", "Frieren", "Frieren" ),
+( "FIGURE-7","MADHOUSE x DesignCOCO Frieren: Beyond Journey's End Himmel - Art Nouveau Style - 1/7 Complete Figure",11850,"May-2026", "madhouse", "Frieren", "Himmel" ),
+( "FIGURE-8","Umamusume Pretty Derby Dantsu Flame 1/7 Complete Figure",9730,"Jan-2026", "Phat Company", "Umamusume: Pretty Derby", "Dantsu Flame" )
+;
+select * from productdetails;
+
+--image
+CREATE TABLE product_images (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    prodCode VARCHAR(50),
+    image_path VARCHAR(255),          
+    FOREIGN KEY (prodCode) REFERENCES productdetails(prodCode)
+);
+INSERT INTO product_images (prodCode, image_path)
+VALUES
+('FIGURE-1', 'projectimg/takina-1.jpg'),
+('FIGURE-1', 'projectimg/takina-2.jpg'),
+('FIGURE-1', 'projectimg/takina-3.jpg'),
+('FIGURE-1', 'projectimg/takina-6.jpg'),
+('FIGURE-1', 'projectimg/takina-5.jpg'),
+
+('FIGURE-2', 'projectimg/chisato-2.jpg'),
+('FIGURE-2', 'projectimg/chisato-4.jpg'),
+('FIGURE-2', 'projectimg/chisato-5.jpg'),
+('FIGURE-2', 'projectimg/chisato-6.jpg'),
+('FIGURE-2', 'projectimg/chisato-7.jpg'),
+
+('FIGURE-3', 'projectimg/bronya-1.jpg'),
+('FIGURE-3', 'projectimg/bronya-2.jpg'),
+('FIGURE-3', 'projectimg/bronya-3.jpg'),
+('FIGURE-3', 'projectimg/bronya-4.jpg'),
+('FIGURE-3', 'projectimg/bronya-5.jpg'),
+
+('FIGURE-4', 'projectimg/teto-nen-1.jpg'),
+('FIGURE-4', 'projectimg/teto-nen-2.jpg'),
+('FIGURE-4', 'projectimg/teto-nen-3.jpg'),
+('FIGURE-4', 'projectimg/teto-nen-4.jpg'),
+('FIGURE-4', 'projectimg/teto-nen-5.jpg'),
+
+('FIGURE-5', 'projectimg/hyacine-1.jpg'),
+('FIGURE-5', 'projectimg/hyacine-2.jpg'),
+('FIGURE-5', 'projectimg/hyacine-3.jpg'),
+('FIGURE-5', 'projectimg/hyacine-4.jpg'),
+('FIGURE-5', 'projectimg/hyacine-5.jpg'),
+
+('FIGURE-6', 'projectimg/frieren-2.jpg'),
+('FIGURE-6', 'projectimg/frieren-3.jpg'),
+('FIGURE-6', 'projectimg/frieren-8.jpg'),
+('FIGURE-6', 'projectimg/frieren-6.jpg'),
+('FIGURE-6', 'projectimg/frieren-himmel.jpg'),
+
+('FIGURE-7', 'projectimg/himmel-2.jpg'),
+('FIGURE-7', 'projectimg/himmel-3.jpg'),
+('FIGURE-7', 'projectimg/himmel-8.jpg'),
+('FIGURE-7', 'projectimg/himmel-6.jpg'),
+('FIGURE-7', 'projectimg/frieren-himmel.jpg'),
+
+('FIGURE-8', 'projectimg/dantsu-1.jpg'),
+('FIGURE-8', 'projectimg/dantsu-3.jpg'),
+('FIGURE-8', 'projectimg/dantsu-4.jpg'),
+('FIGURE-8', 'projectimg/dantsu-5.jpg'),
+('FIGURE-8', 'projectimg/dantsu-6.jpg');
+
+
+
+--cart contents
+
+
+CREATE TABLE cartContents (
+    email VARCHAR(50) NOT NULL,
+    prodCode VARCHAR(15),
+    PRIMARY KEY (email, prodCode),
+    FOREIGN KEY (email) REFERENCES accounts(email)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY (prodCode) REFERENCES productDetails(prodCode)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;	
+ALTER TABLE cartContents
+ADD amount INT NOT NULL DEFAULT 1;	
+
+
+
+
+
+
+
+
+
