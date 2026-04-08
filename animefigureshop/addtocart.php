@@ -9,7 +9,6 @@ if (!isset($_SESSION['email'])) {
 $email    = $_SESSION['email'];
 $prodcode = $_GET['prodcode'] ?? '';
 $quantity = (int)($_GET['quantity'] ?? 1);
-
 if (!empty($prodcode)) {
     $conn = new mysqli("localhost", "root", "", "webproject");
     if ($conn->connect_error) {

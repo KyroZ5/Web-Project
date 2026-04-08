@@ -120,7 +120,7 @@ $conn->close();
                                     <h2>Add To Cart</h2>
                                 </div>
                             </a>
-                            <a href="checkout1.html">
+                            <a href="checkout.php?prodcode=<?php echo $prodcode; ?>">
                                 <div id="buynow">
                                     <h2>Buy Now</h2>
                                 </div>
@@ -183,8 +183,7 @@ $conn->close();
                 <img src="projectimg/check.png" alt="Success" class="popup-icon" />
                 <p class="popup-text">Added to Cart</p>
                 <button id="okBtn">OK</button>
-         </div>
-
+    </div>
     </div>
     <script src="product.js" type="text/javascript"></script>
 </body>
