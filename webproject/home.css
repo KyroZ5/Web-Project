@@ -61,7 +61,9 @@ a {
     height: 40px;
     width: 40px;
 }
-
+#profile img{
+    border-radius: 50px;
+}
 #profile, #cart{
     width: 100px;
 }

@@ -28,3 +28,28 @@ function autoSlide() {
     autoSlide(); 
   }, 3000); 
 }
+
+
+var orderLink = document.getElementById("tocart");
+
+orderLink.addEventListener("click", function (e) {
+  var qty = document.getElementById("quantity").value;
+  var baseHref = orderLink.getAttribute("href");
+  orderLink.setAttribute("href", baseHref + "&quantity=" + encodeURIComponent(qty));
+});
+
+var popup = document.getElementById("popup");
+var okBtn = document.getElementById("okBtn");
+
+if (window.location.search.includes("cart_status=success")) {
+  popup.querySelector(".popup-text").textContent = "Added to Cart";
+  popup.style.display = "flex";
+} else if (window.location.search.includes("cart_status=updated")) {
+  popup.querySelector(".popup-text").textContent = "Quantity Updated";
+  popup.style.display = "flex";
+}
+
+okBtn.addEventListener("click", function () {
+  popup.style.display = "none";
+});
+
