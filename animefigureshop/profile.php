@@ -64,10 +64,10 @@ if(!isset($_SESSION["email"])){
                 <p>From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.</p>
 
                 <div class="account-actions">
-                    <a href="profile.php" class="btn">My Account</a>
-                    <a href="orders.php" class="btn">Orders</a>
-                    <a href="edit_account.php" class="btn">Edit Account</a>
-                    <a href="logout.php" class="btn btn-danger">Log out</a>
+                    <a href="profile.php" class="btn"><h3>My Account</h3></a>
+                    <a href="orders.php" class="btn"><h3>Orders</h3></a>
+                    <a href="edit_account.php" class="btn"><h3>Edit Account</h3></a>
+                    <a href="logout.php" class="btn btn-danger"><h3>Log out</h3></a>
                 </div>
             </div>
         </div>
