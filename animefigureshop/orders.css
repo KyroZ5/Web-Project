@@ -90,37 +90,37 @@ a {
 }
 
 
-/* Styles for the main account layout, based on image */
+
 #main-account {
     display: flex;
-    min-height: calc(100vh - 10vh - 39px); /* Adjust for header/footer height */
+    min-height: calc(100vh - 10vh - 39px); 
     margin-top: 0;
-    background-color: #f0f2f5; /* Light background for the main account area */
+    background-color: #f0f2f5; 
     padding: 20px 0;
 }
 
-/* Styles for the account sidebar, matching image */
+
 .account-sidebar {
-    width: 250px; /* Fixed width for sidebar */
-    background-color: white; /* White background */
+    width: 250px; 
+    background-color: white; 
     padding: 20px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.05); /* Subtle shadow */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
     margin-right: 30px;
-    border-radius: 8px; /* Rounded corners */
-    margin-left: 20px; /* Spacing from left edge */
+    border-radius: 8px; 
+    margin-left: 20px; 
 }
 
 .account-sidebar .user-info {
     text-align: center;
     margin-bottom: 30px;
-    border-bottom: 1px solid #eee; /* Light separator line */
+    border-bottom: 1px solid #eee;
     padding-bottom: 15px;
 }
 
 .account-sidebar .user-info h3 {
     margin: 0;
     font-size: 1.2rem;
-    font-family: 'Montserrat', sans-serif; /* [AI KNOWLEDGE]({}) */
+    font-family: 'Montserrat', sans-serif;
     color: #333;
 }
 
@@ -140,7 +140,7 @@ a {
 .account-sidebar ul li a {
     display: flex;
     align-items: center;
-    color: #555; /* Dark grey text for links */
+    color: #555; 
     font-weight: 500;
     font-family: 'Montserrat', sans-serif;
 }
@@ -148,16 +148,16 @@ a {
 .account-sidebar ul li a .icon {
     margin-right: 15px;
     font-size: 1.1rem;
-    color: #555; /* Icon color consistent with text */
+    color: #555; 
 }
 
 .account-sidebar ul li.active {
-    background-color: #f0f0f0; /* Light grey background for active item */
+    background-color: #f0f0f0; 
     border-radius: 5px;
 }
 
 .account-sidebar ul li:hover {
-    background-color: #f8f9fa; /* Very light grey on hover */
+    background-color: #f8f9fa;
 }
 
 .my-account {
@@ -172,12 +172,71 @@ a {
 
 .account-content {
     flex-grow: 1;
-    padding: 20px; /* Increased padding */
-    background-color: white; /* White background */
+    padding: 20px; 
+    background-color: white; 
     box-sizing: border-box;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 0 10px rgba(0,0,0,0.05); /* Subtle shadow */
-    margin-right: 20px; /* Spacing from right edge */
+    border-radius: 8px; 
+    box-shadow: 0 0 10px rgba(0,0,0,0.05); 
+    margin-right: 20px; 
+}
+/* Order cards inside account-content */
+.account-order {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    background: #fff;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.account-order:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Product image per order */
+.account-order-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 6px;
+}
+
+/* Order info text */
+.account-order-info {
+    font-size: 14px;
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+}
+
+/* Status badges */
+.status {
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 8px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+}
+
+.status.approved {
+    background-color: #e6f5e6;
+    color: green;
+}
+
+.status.pending {
+    background-color: #fff4e0;
+    color: orange;
+}
+
+.status.rejected {
+    background-color: #fbeaea;
+    color: red;
 }
 
 

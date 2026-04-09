@@ -24,7 +24,7 @@ if ($email === "admin@gmail.com" && $password === "admin") {
     $_SESSION['email']     = $email;
     $_SESSION['firstname'] = "Admin";   
     $_SESSION['lastname']  = "";
-    header("Location: admin.php?login_status=success&login_msg=Welcome Admin");
+    header("Location: admin.php");
     exit;
 }
 

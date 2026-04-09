@@ -1,12 +1,42 @@
 <?php
 session_start();
-?>
 
-<?php
 if(!isset($_SESSION["email"])){
     echo "<script>alert('Still Logged Out!')</script>";
     echo "<script> window.location.href='index.php'; </script>";
+    exit();
 }
+
+// Database connection
+$servername = "localhost";
+$username   = "root";     // adjust if needed
+$password   = "";         // adjust if needed
+$dbname     = "webproject";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch user info
+$email = $_SESSION["email"];
+$sql   = "SELECT firstname, lastname FROM accounts WHERE email = ?";
+$stmt  = $conn->prepare($sql);
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if($result->num_rows > 0){
+    $row = $result->fetch_assoc();
+    $fullname = $row['firstname'] . " " . $row['lastname'];
+} else {
+    $fullname = "Unknown User";
+}
+
+$stmt->close();
+$conn->close();
 ?>
 
 <html lang="en">
@@ -49,7 +79,7 @@ if(!isset($_SESSION["email"])){
         <div id="main-account">
             <div class="account-sidebar">
                 <div class="user-info">
-                    <h3>Sean Kevin Mananghaya</h3> <!-- Dynamic user name would go here -->
+                    <h3><?php echo htmlspecialchars($fullname); ?></h3>
                 </div>
                 <ul>
                     <li class="active"><a href="profile.php"><span class="icon">👤</span> MY ACCOUNT</a></li>
@@ -60,7 +90,7 @@ if(!isset($_SESSION["email"])){
             </div>
             
             <div class="account-content">
-                <p>Hello Sean Kevin Mananghaya (not Sean Kevin Mananghaya? <a href="logout.php">Log out</a>)</p>
+                <p>Hello <?php echo htmlspecialchars($fullname); ?> (not <?php echo htmlspecialchars($fullname); ?>? <a href="logout.php">Log out</a>)</p>
                 <p>From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.</p>
 
                 <div class="account-actions">
