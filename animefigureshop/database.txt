@@ -125,6 +125,8 @@ CREATE TABLE Orders (
     orderDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (email) REFERENCES accounts(email)
 );
+ALTER TABLE Orders
+ADD COLUMN orderStatus ENUM('Pending','Approved','Rejected') NOT NULL DEFAULT 'Pending';
 CREATE TABLE OrderItems (
     orderItemID INT AUTO_INCREMENT PRIMARY KEY,
     orderID INT NOT NULL,
