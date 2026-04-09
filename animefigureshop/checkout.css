@@ -70,12 +70,6 @@ a {
     height: 25px;
     width: 25px;
 }
-#footer {
-    height: 10vh;
-    width: 100%;
-    background-color: #2b2d30;
-    margin-top: 0;
-}
 #main {
     height: 1300px;
     width: 100%;
@@ -576,4 +570,13 @@ input[type="number"]::-webkit-outer-spin-button {
 .t-neutral .spinner__button:active {
   background: #444;
 }
-
+#footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+}
+#profile img{
+    border-radius: 50px;
+}

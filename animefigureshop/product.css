@@ -1,7 +1,7 @@
 body {
     padding: 0;
     margin: 0;
-    
+    font-family: 'Konkhmer Sleokchher', sans-serif;
 }
 a {
     text-decoration: none;
@@ -73,10 +73,11 @@ a {
     width: 25px;
 }
 #footer {
-    height: 10vh;
-    width: 100%;
-    background-color: #2b2d30;
-    margin-top: 0;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
 }
 #main {
     height: 1300px;

@@ -49,22 +49,22 @@ if(!isset($_SESSION["email"])){
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>Title</title>
+        <title>Checkout</title>
         <link rel="stylesheet" href="checkout.css" type="text/css" />
     </head>
     <body>
-        <div id="header">
+         <div id="header">
             <div id="logo">
-                <a href="home.html"> <img src="projectimg/FInal-removebg-preview.png" alt="" /> </a>
+                <a href="home.php"> <img src="projectimg/FInal-removebg-preview.png" alt="" /> </a>
             </div>
             <div class="nav" id="nav1">
-                <a href="home.html" id="active"><h2>Home</h2></a>
+                <a href="home.php" id="active"><h2>Home</h2></a>
             </div>
             <div class="nav">
-                <a href="home.html"> <h2>About</h2></a>
+                <a href="about.php"> <h2>About</h2></a>
             </div>
             <div class="nav">
-                <a href="home.html"><h2>FAQ</h2></a>
+                <a href="faq.php"><h2>FAQ</h2></a>
             </div>
             <div class="nav" id="search">
                 <form>
@@ -73,12 +73,12 @@ if(!isset($_SESSION["email"])){
                 </form>
             </div>
             <div class="nav" id="profile">
-                <a href=""><img src="projectimg/profile.jpg" /> </a>
+                <a href="profile.php"><img src="projectimg/profile.jpg" /> </a>
             </div>
             <div class="nav" id="cart">
-                <a href=""><img src="projectimg/cart.png" /> </a>
+                <a href="cart.php"><img src="projectimg/cart.png" /> </a>
             </div>
-        </div>
+    </div>
 
         <div id="main">
             <div id="upper">
@@ -95,7 +95,7 @@ if(!isset($_SESSION["email"])){
                   
                 <div id="email">
                     <img src="projectimg/profile.jpg" alt="" />
-                    <h4>gianhakdog24@gmail.com</h4>
+                    <h4><?php echo htmlspecialchars($_SESSION['email']); ?></h4>
                 </div>
 
                 <div class="option-selector">
@@ -284,7 +284,9 @@ if(!isset($_SESSION["email"])){
                 </div>
             </div>
         </div>
-        <div id="footer"></div>
+        <div id="footer">
+        <p>&copy; 2026 Aijeeen’s Shumi Shop</p>
+    </div>
         <script src="checkout.js" type="text/javascript"></script>
     </body>
 </html>

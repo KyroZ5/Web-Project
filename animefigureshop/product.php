@@ -55,18 +55,18 @@ $conn->close();
     <link rel="stylesheet" href="product.css?v=1.0" type="text/css" />
 </head>
 <body>
-    <div id="header">
+     <div id="header">
             <div id="logo">
-                <a href="home.html"> <img src="projectimg/FInal-removebg-preview.png" alt="" /> </a>
+                <a href="home.php"> <img src="projectimg/FInal-removebg-preview.png" alt="" /> </a>
             </div>
             <div class="nav" id="nav1">
-                <a href="home.html" id="active"><h2>Home</h2></a>
+                <a href="home.php" id="active"><h2>Home</h2></a>
             </div>
             <div class="nav">
-                <a href="home.html"> <h2>About</h2></a>
+                <a href="about.php"> <h2>About</h2></a>
             </div>
             <div class="nav">
-                <a href="home.html"><h2>FAQ</h2></a>
+                <a href="faq.php"><h2>FAQ</h2></a>
             </div>
             <div class="nav" id="search">
                 <form>
@@ -75,10 +75,10 @@ $conn->close();
                 </form>
             </div>
             <div class="nav" id="profile">
-                <a href=""><img src="projectimg/profile.jpg" /> </a>
+                <a href="profile.php"><img src="projectimg/profile.jpg" /> </a>
             </div>
             <div class="nav" id="cart">
-                <a href=""><img src="projectimg/cart.png" /> </a>
+                <a href="cart.php"><img src="projectimg/cart.png" /> </a>
             </div>
     </div>
     <div id="main">
@@ -159,25 +159,27 @@ $conn->close();
             <h2>You may also like</h2>
              <div id="contents">
                     <div class="recommend">
-                        <a href="product2.html"><img src="projectimg/1.png" /></a>
+                        <a href="product.php?prodcode=FIGURE-2"><img src="projectimg/1.png" /></a>
                         <h4>Lycoris Recoil 1/7 Scale Figure Chisato Nishikigi -Band ver.</h4>
                     </div>
                     <div class="recommend">
-                        <a href="product3.html"><img src="projectimg/2.png" /></a>
+                        <a href="product.php?prodcode=FIGURE-1"><img src="projectimg/2.png" /></a>
                         <h4>Lycoris Recoil 1/7 Scale Figure Takina Inoue -Band ver.</h4>
                     </div>
                     <div class="recommend">
-                        <a href="product4.html"><img src="projectimg/3.png" /></a>
+                        <a href="product.php?prodcode=FIGURE-5"><img src="projectimg/3.png" /></a>
                         <h4>Gift+ Honkai: Star Rail Hyacine 1/8 Complete Figure</h4>
                     </div>
                     <div class="recommend">
-                        <a href="product5.html"><img src="projectimg/4.png" /></a>
+                        <a href="product.php?prodcode=FIGURE-4"><img src="projectimg/4.png" /></a>
                         <h4>Nendoroid Kasane Teto: Synthesizer V AI Ver.</h4>
                     </div>
                 </div>
         </div>
     </div>
-    <div id="footer"></div>
+    <div id="footer">
+        <p>&copy; 2026 Aijeeen’s Shumi Shop</p>
+    </div>
     <div id="popup">
         <div class="popup-content">
                 <img src="projectimg/check.png" alt="Success" class="popup-icon" />

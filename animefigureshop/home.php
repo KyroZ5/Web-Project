@@ -12,22 +12,22 @@ if(!isset($_SESSION["email"])){
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>Title</title>
+        <title>Home</title>
         <link rel="stylesheet" href="home.css?v=1.0" type="text/css" />
     </head>
     <body>
-        <div id="header">
+         <div id="header">
             <div id="logo">
-                <a href="home.html"> <img src="projectimg/FInal-removebg-preview.png" alt="" /> </a>
+                <a href="home.php"> <img src="projectimg/FInal-removebg-preview.png" alt="" /> </a>
             </div>
             <div class="nav" id="nav1">
-                <a href="home.html" id="active"><h2>Home</h2></a>
+                <a href="home.php" id="active"><h2>Home</h2></a>
             </div>
             <div class="nav">
-                <a href="home.html"> <h2>About</h2></a>
+                <a href="about.php"> <h2>About</h2></a>
             </div>
             <div class="nav">
-                <a href="home.html"><h2>FAQ</h2></a>
+                <a href="faq.php"><h2>FAQ</h2></a>
             </div>
             <div class="nav" id="search">
                 <form>
@@ -36,12 +36,12 @@ if(!isset($_SESSION["email"])){
                 </form>
             </div>
             <div class="nav" id="profile">
-                <a href="logout.php"><img src="projectimg/profile.jpg" /> </a>
+                <a href="profile.php"><img src="projectimg/profile.jpg" /> </a>
             </div>
             <div class="nav" id="cart">
-                <a href=""><img src="projectimg/cart.png" /> </a>
+                <a href="cart.php"><img src="projectimg/cart.png" /> </a>
             </div>
-        </div>
+    </div>
         <div id="main">
             <div id="outer">
                 <div id="inner">
@@ -154,7 +154,9 @@ if(!isset($_SESSION["email"])){
                 </div>
             </div>
         </div>
-        <div id="footer"></div>
+        <div id="footer">
+        <p>&copy; 2026 Aijeeen’s Shumi Shop</p>
+    </div>
         <script src="home.js" type="text/javascript"></script>
     </body>
 </html>
