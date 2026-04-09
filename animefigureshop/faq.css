@@ -1,0 +1,114 @@
+body {
+    padding: 0;
+    margin: 0; 
+    font-family: 'Konkhmer Sleokchher', sans-serif;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+#header {
+    height: 10vh;
+    width: 100%;
+    background-color: #2b2d30;
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    
+} 
+#logo img{
+    width: 250px;
+    height: 100%;
+}
+.nav{ 
+    width: 170px;
+    height: 100%;
+    align-content: center; 
+    text-align: center;
+}
+.nav a {
+    color:white;
+}
+#nav1{
+    margin-left: 100px;
+}
+#logo {
+    width: 250px;
+    height: 100%;
+}
+#search{   
+    margin-left: 50px;
+    width: 300px;
+}
+#search button {
+    float: right;
+    margin-top: 8px;
+    margin-right: 16px;
+    border: none;
+    cursor: pointer;
+}
+#search input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+
+}
+#profile img, #cart img{
+    margin-top: 10px;
+    height: 40px;
+    width: 40px;
+}
+#profile img{
+    border-radius: 50px;
+}
+#profile, #cart{
+    width: 100px;
+}
+#search button img {
+    margin-top: 1px;
+    height: 25px;
+    width: 25px;
+}
+
+#footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+}
+#main {
+    flex: 1;
+    width: 100%;
+    background: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#faq {
+    max-width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+#faq h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#faq h3 {
+    margin-top: 30px;
+    font-size: 1.3em;
+    color: #444;
+}
+
+#faq p {
+    margin-bottom: 15px;
+    color: #555;
+}
