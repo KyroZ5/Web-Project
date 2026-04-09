@@ -13,7 +13,7 @@ if(!isset($_SESSION["email"])){
     <head>
         <meta charset="UTF-8" />
         <title>Home</title>
-        <link rel="stylesheet" href="about.css" type="text/css" />
+        <link rel="stylesheet" href="profile.css" type="text/css" />
     </head>
     <body>
          <div id="header">
