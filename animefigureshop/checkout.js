@@ -1,61 +1,70 @@
-'use strict';
-var options = document.querySelectorAll(".option");
+"use strict";
 
-options.forEach(function (option) {
-  option.addEventListener("click", function () {
-    options.forEach(function (o) {
-      o.classList.remove("active");
-    });
+const options = document.querySelectorAll(".option");
+const logisticsInput = document.getElementById("logisticsMethod");
+
+options.forEach((option) => {
+  option.addEventListener("click", () => {
+    options.forEach((o) => o.classList.remove("active"));
     option.classList.add("active");
+
     document.getElementById("shipDiv").style.display = "none";
     document.getElementById("pickupDiv").style.display = "none";
 
-    if (option.dataset.method === "ship") {
+    if (option.dataset.method === "Delivery") {
+      logisticsInput.value = "Delivery";
       document.getElementById("shipDiv").style.display = "block";
-      document.getElementById("logisticsMethod").value = "ship";
 
-      document.querySelectorAll('#shipDiv input[name="payment"]').forEach(function (radio) {
-        radio.disabled = false;
+      document.querySelectorAll("#shipDiv [required]").forEach((field) => {
+        field.required = true;
       });
-
-    } else {
+    } else if (option.dataset.method === "Pickup") {
+      logisticsInput.value = "Pickup";
       document.getElementById("pickupDiv").style.display = "block";
-      document.getElementById("logisticsMethod").value = "pickup";
 
-      var cashRadio = document.querySelector('#pickupDiv input[value="bank"]'); 
-      if (cashRadio) {
-        cashRadio.checked = true;
-      }
-
-      document.querySelectorAll('#pickupDiv input[name="payment"]').forEach(function (radio) {
-        if (radio.value !== "bank") {
-          radio.disabled = true;
-        }
+      document.querySelectorAll("#shipDiv [required]").forEach((field) => {
+        field.required = false;
       });
     }
   });
 });
 
-// Payment expandable toggle
-var radios = document.querySelectorAll('input[name="payment"]');
-radios.forEach(function (radio) {
-  radio.addEventListener("change", function () {
-    document.querySelectorAll(".expandable").forEach(function (exp) {
-      exp.style.display = "none";
-    });
+const radios = document.querySelectorAll('#shipDiv input[name="payment"], #pickupDiv input[name="payment"]');
 
-    var expandable = radio.closest(".radio-option").querySelector(".expandable");
-    expandable.style.display = "block";
+radios.forEach((radio) => {
+  radio.addEventListener("change", () => {
+    const parentSection = radio.closest(".methodDiv");
+    if (parentSection) {
+      parentSection.querySelectorAll(".expandable").forEach((exp) => {
+        exp.style.display = "none";
+      });
+    }
+
+    const wrapper = radio.closest(".radio-option");
+    if (wrapper) {
+      const expandable = wrapper.querySelector(".expandable");
+      if (expandable) {
+        expandable.style.display = "block";
+      }
+    }
   });
 });
-document
-  .querySelector('input[name="payment"]:checked')
-  .closest(".radio-option")
-  .querySelector(".expandable").style.display = "block";
 
-// Pop-up
-var popup = document.getElementById("popup");
-var okBtn = document.getElementById("okBtn");
+["shipDiv", "pickupDiv"].forEach((sectionId) => {
+  const checkedRadio = document.querySelector(`#${sectionId} input[name="payment"]:checked`);
+  if (checkedRadio) {
+    const wrapper = checkedRadio.closest(".radio-option");
+    if (wrapper) {
+      const expandable = wrapper.querySelector(".expandable");
+      if (expandable) {
+        expandable.style.display = "block";
+      }
+    }
+  }
+});
+
+const popup = document.getElementById("popup");
+const okBtn = document.getElementById("okBtn");
 
 if (window.location.search.includes("order_status=success")) {
   popup.querySelector(".popup-text").textContent = "Order Placed Successfully";
@@ -68,57 +77,48 @@ if (window.location.search.includes("order_status=success")) {
   popup.style.display = "flex";
 }
 
-okBtn.addEventListener("click", function () {
-  popup.style.display = "none";
+okBtn.addEventListener("click", () => {
+  window.location.href = "home.php";
 });
 
-// Amount spinner
 function NumberSpinner(spinnerElem) {
-  const spinnerInput = spinnerElem.querySelector('.spinner__input');
-  const btnSubtract = spinnerElem.querySelector('.js-spinner-horizontal-subtract');
-  const btnAdd = spinnerElem.querySelector('.js-spinner-horizontal-add');
+  const spinnerInput = spinnerElem.querySelector(".spinner__input");
+  const btnSubtract = spinnerElem.querySelector(".js-spinner-horizontal-subtract");
+  const btnAdd = spinnerElem.querySelector(".js-spinner-horizontal-add");
 
-  const minLimit = parseInt(spinnerInput.getAttribute('min'), 10) || 0;
-  const maxLimit = parseInt(spinnerInput.getAttribute('max'), 10) || Infinity;
-  const step = parseInt(spinnerInput.getAttribute('step'), 10) || 1;
+  const minLimit = parseInt(spinnerInput.getAttribute("min"), 10) || 0;
+  const maxLimit = parseInt(spinnerInput.getAttribute("max"), 10) || Infinity;
+  const step = parseInt(spinnerInput.getAttribute("step"), 10) || 1;
 
   function update(direction) {
     let num = parseInt(spinnerInput.value, 10) || 0;
-    if (direction === 'add') {
+    if (direction === "add") {
       spinnerInput.value = Math.min(num + step, maxLimit);
-    } else if (direction === 'subtract') {
+    } else if (direction === "subtract") {
       spinnerInput.value = Math.max(num - step, minLimit);
     }
-    // Sync hidden input inside form
-    const hiddenQty = document.getElementById('hiddenQty');
+    const hiddenQty = document.getElementById("hiddenQty");
     if (hiddenQty) hiddenQty.value = spinnerInput.value;
   }
 
   function changeSpinner(e) {
     e.preventDefault();
-    const type = e.target.getAttribute('data-type');
-    update(type);
+    update(e.target.getAttribute("data-type"));
   }
 
   function keySpinner(e) {
-    switch (e.keyCode) {
-      case 40: // down
-      case 37: // left
-        update('subtract');
-        break;
-      case 38: // up
-      case 39: // right
-        update('add');
-        break;
-    }
+    if ([37, 40].includes(e.keyCode)) update("subtract");
+    if ([38, 39].includes(e.keyCode)) update("add");
   }
 
-  btnSubtract.addEventListener('click', changeSpinner);
-  btnAdd.addEventListener('click', changeSpinner);
-  spinnerInput.addEventListener('keyup', keySpinner);
+  btnSubtract.addEventListener("click", changeSpinner);
+  btnAdd.addEventListener("click", changeSpinner);
+  spinnerInput.addEventListener("keyup", keySpinner);
 }
 
-// Initialize all spinners
-document.querySelectorAll('.spinner').forEach(spinnerElem => {
-  NumberSpinner(spinnerElem);
+document.querySelectorAll(".spinner").forEach(NumberSpinner);
+
+document.getElementById("checkoutForm").addEventListener("submit", () => {
+  const activeOption = document.querySelector(".option.active");
+  if (activeOption) logisticsInput.value = activeOption.dataset.method;
 });

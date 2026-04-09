@@ -99,15 +99,15 @@ if(!isset($_SESSION["email"])){
                 </div>
 
                 <div class="option-selector">
-                    <button type="button" class="option active" data-method="ship">
+                    <button type="button" class="option active" data-method="Delivery">
                         <img src="projectimg/truck.png" alt="" />Ship
                     </button>
-                    <button type="button" class="option" data-method="pickup">
+                    <button type="button" class="option" data-method="Pickup">
                         <img src="projectimg/location.png" alt="" />Pickup
                     </button>
                 </div>
                 <input type="hidden" name="products[<?php echo $_GET['prodcode']; ?>]" id="hiddenQty" value="1">
-                <input type="hidden" name="logisticsMethod" id="logisticsMethod" value="ship">
+                <input type="hidden" name="logisticsMethod" id="logisticsMethod" value="Delivery">
 
                 <div id="shipDiv" class="methodDiv">
                     <h4>Shipping Information</h4>
@@ -145,7 +145,7 @@ if(!isset($_SESSION["email"])){
                         <p>All transactions are secure and encrypted.</p>
                         <div class="radio-option">
                             <label>
-                                <input type="radio" name="payment" value="bank" checked />
+                                <input type="radio" name="payment" value="Bank" checked />
                                 Bank Payment
                             </label>
                             <div class="expandable">
@@ -154,7 +154,7 @@ if(!isset($_SESSION["email"])){
                         </div>
                         <div class="radio-option">
                             <label>
-                                <input type="radio" name="payment" value="gcash" />
+                                <input type="radio" name="payment" value="GcashPaymaya" />
                                 Gcash / PayMaya
                             </label>
                             <div class="expandable">
@@ -163,7 +163,7 @@ if(!isset($_SESSION["email"])){
                         </div>
                         <div class="radio-option">
                             <label>
-                                <input type="radio" name="payment" value="paypal" />
+                                <input type="radio" name="payment" value="Paypal" />
                                 Paypal
                             </label>
                             <div class="expandable">
@@ -189,7 +189,7 @@ if(!isset($_SESSION["email"])){
                         <p>All transactions are secure and encrypted.</p>
                         <div class="radio-option">
                             <label>
-                                <input type="radio" name="payment" value="bank" checked />
+                                <input type="radio" name="payment" value="Cash" checked />  
                                 Cash
                             </label>
                             <div class="expandable">
@@ -198,7 +198,7 @@ if(!isset($_SESSION["email"])){
                         </div>
                         <div class="radio-option">
                             <label>
-                                <input type="radio" name="payment" value="gcash" />
+                                <input type="radio" name="payment" value="GcashPaymaya" />
                                 Gcash / PayMaya
                             </label>
                             <div class="expandable">
@@ -207,7 +207,7 @@ if(!isset($_SESSION["email"])){
                         </div>
                         <div class="radio-option">
                             <label>
-                                <input type="radio" name="payment" value="paypal" />
+                                <input type="radio" name="payment" value="Paypal" />
                                 Paypal
                             </label>
                             <div class="expandable">
